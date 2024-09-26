@@ -18,4 +18,13 @@ model Produto {
   nome      String
   preco     Float
   descricao String
+  fotos     Foto[]
+}
+
+model Foto {
+  id        Int     @id @default(autoincrement())
+  titulo    String
+  url       String
+  produtoId Int
+  produto   Produto @relation(fields: [produtoId], references: [id])
 }
